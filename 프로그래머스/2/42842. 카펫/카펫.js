@@ -8,7 +8,7 @@ function solution(brown, yellow) {
         return [width, height];
     }
 
-    for (let i = height - 1; i < total; i--) {
+    for (let i = height - 1; i >= 3; i--) {
         if (total % i !== 0) continue;
         height = i;
         width = total / i;
