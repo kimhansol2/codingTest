@@ -1,13 +1,22 @@
 function solution(n, computers) {
+ /* n =3 컴퓨터 개수
+  computers = [
+    [1,1,0] //A 컴퓨터
+    [1,1,0]// B 컴퓨터
+    [0,0,1]// C 컴퓨터
+    ];*/
   const visited = Array(n).fill(false); // 방문 여부 체크
-  let count = 0; // 네트워크 개수
+  // 방문 여부 : [false, false, false]
+  let count = 0; // 네트워크 개수 초기화
 
   function dfs(i) {
-    visited[i] = true;
+    visited[i] = true; // i번 컴퓨터를 방문처리
 
     for (let j = 0; j < n; j++) {
+      // i번 컴퓨터와 j번 컴퓨터가 연결되어 있고
+      // j번 컴퓨터가 아직 방문되지 않았다면
       if (computers[i][j] === 1 && !visited[j]) {
-        dfs(j); // 연결된 컴퓨터는 재귀적으로 방문
+        dfs(j); // j번 컴퓨터로  재귀적으로 방문
       }
     }
   }
